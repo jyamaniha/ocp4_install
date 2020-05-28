@@ -1,0 +1,18 @@
+$TTL 604800
+@       IN      SOA     {{ domain }}. admin.{{ domain }}. (
+        9               ; Serial
+        604800          ; Refresh
+        86400           ; Retry
+        2419200         ; Expire
+        604800 )        ; Negative Cache TTL
+
+; NS records
+@       IN      NS      ns.{{ domain }}.
+
+; NS A records
+ns.{{ domain }}.      IN      A       10.95.72.70
+
+; Other Hosts A records
+ocp-control-plane-1.{{ domain }}.       IN      A       10.95.72.72
+ocp-control-plane-2.{{ domain }}.       IN      A       10.95.72.73
+ocp-control-plane-3.{{ domain }}.       IN      A       10.95.72.74
