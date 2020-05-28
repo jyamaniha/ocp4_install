@@ -1,3 +1,4 @@
+#!/bin/bash
 # sudo yum install unzip -y
 # sudo yum install wget -y
 export TERRAFORM_VERSION=0.11.14
