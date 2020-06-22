@@ -4,7 +4,7 @@
   hosts: 127.0.0.1
   connection: local
   vars:
-    domain: openlearn.local
+    domain: lab.openlearn.local
     rev_domain: 72.95.10.in-addr.arpa
   tasks:
   - name: Install bind

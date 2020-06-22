@@ -5,5 +5,5 @@ zone "{{ domain }}" IN {
 
 zone "{{ rev_domain }}" IN {
     type master;
-    file "/etc/named/zones/db.{{ rev_domain }}";  # 10.0.2.0/24 subnet
+    file "/etc/named/zones/db.{{ rev_domain }}";
 };

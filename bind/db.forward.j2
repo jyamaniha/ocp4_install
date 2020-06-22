@@ -12,11 +12,27 @@ $TTL 604800
 ; NS A records
 ns.{{ domain }}.      IN      A       10.95.72.70
 
-; Other Hosts A records
-ocp-bastion..{{ domain }}.       IN      A       10.95.72.70
+; Hosts A records
+ocp-bastion.{{ domain }}.       IN      A       10.95.72.70
 ocp-bootstrap.{{ domain }}.       IN      A       10.95.72.71
 ocp-control-plane-1.{{ domain }}.       IN      A       10.95.72.72
 ocp-control-plane-2.{{ domain }}.       IN      A       10.95.72.73
 ocp-control-plane-3.{{ domain }}.       IN      A       10.95.72.74
 ocp-compute-1.{{ domain }}.       IN      A       10.95.72.75
 ocp-compute-2.{{ domain }}.       IN      A       10.95.72.76
+
+; OpenShift internal cluster IPs - A records
+
+api.{{ domain }}.    IN    A    10.95.72.70
+api-int.{{ domain }}.    IN    A    10.95.72.70
+*.apps.{{ domain }}.    IN    A    10.95.72.70
+etcd-0.{{ domain }}.    IN    A     10.95.72.72
+etcd-1.{{ domain }}.    IN    A     10.95.72.73
+etcd-2.{{ domain }}.    IN    A     10.95.72.74
+console-openshift-console.apps.{{ domain }}.     IN     A     10.95.72.70
+oauth-openshift.apps.{{ domain }}.     IN     A     10.95.72.70
+
+; OpenShift internal cluster IPs - SRV records
+_etcd-server-ssl._tcp.{{ domain }}.    86400     IN    SRV     0    10    2380    etcd-0.{{ domain }}.
+_etcd-server-ssl._tcp.{{ domain }}.    86400     IN    SRV     0    10    2380    etcd-1.{{ domain }}.
+_etcd-server-ssl._tcp.{{ domain }}.    86400     IN    SRV     0    10    2380    etcd-2.{{ domain }}.
