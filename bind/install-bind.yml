@@ -11,6 +11,11 @@
     yum:
       pkg: bind
       state: installed
+
+  - name: Enable named sevice
+    service:
+      name: named
+      enabled: yes
     
   - name: Copy named conf file
     template:
@@ -65,13 +70,6 @@
       mode: 0640
     notify: restart named
     
-#- name: Open firewall port
-#  firewalld:
-#    service: dns
-#    permanent: true
-#    state: enabled
-#    immediate: yes
-  
   handlers:
   - name: restart named
     service:

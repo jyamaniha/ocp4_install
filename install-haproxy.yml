@@ -1,0 +1,42 @@
+---
+- name: Install HAProxy and configure
+  become: true
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+  - selinux:
+      state: disabled
+      register: selinux
+  - reboot:
+      when: selinux.changed
+
+  - name: stop and disable firewalld
+    service:
+      name: firewalld
+      state: stopped
+      enabled: no
+      
+  - name: Install haproxy
+    yum:
+      pkg: haproxy
+      state: installed
+        
+  - name: Enable haproxy service
+    service:
+      name: haproxy
+      enabled: yes
+
+  - name: Copy haproxy.cfg
+    template:
+      src: haproxy.cfg.j2
+      dest: /etc/haproxy/haproxy.cfg
+      owner: root
+      group: haproxy
+      mode: 0660
+    notify: restart haproxy     
+     
+  handlers:
+  - name: restart haproxy
+    service:
+      name: haproxy
+      state: restarted
