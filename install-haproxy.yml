@@ -6,9 +6,6 @@
   tasks:
   - selinux:
       state: disabled
-      register: selinux
-  - reboot:
-      when: selinux.changed
 
   - name: stop and disable firewalld
     service:

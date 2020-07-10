@@ -11,12 +11,12 @@ $TTL 604800
 ; PTR Records
 70    IN      PTR     ns.{{ domain }}.   ; 10.95.72.70
 70    IN      PTR     ocp-bastion.{{ domain }}.   ; 10.95.72.70
-71    IN      PTR     ocp-bootstrap.{{ domain }}.   ; 10.95.72.71
-72    IN      PTR     ocp-control-plane-1.{{ domain }}.   ; 10.95.72.72
-73    IN      PTR     ocp-control-plane-2.{{ domain }}.   ; 10.95.72.73
-74    IN      PTR     ocp-control-plane-3.{{ domain }}.   ; 10.95.72.74
+71    IN      PTR     bootstrap-0.{{ domain }}.   ; 10.95.72.71
+72    IN      PTR     control-plane-0.{{ domain }}.   ; 10.95.72.72
+73    IN      PTR     control-plane-1.{{ domain }}.   ; 10.95.72.73
+74    IN      PTR     control-plane-2.{{ domain }}.   ; 10.95.72.74
 72    IN      PTR     etcd-0.{{ domain }}.   ; 10.95.72.72
 73    IN      PTR     etcd-1.{{ domain }}.   ; 10.95.72.73
 74    IN      PTR     etcd-2.{{ domain }}.   ; 10.95.72.74
-75    IN      PTR     ocp-compute-1.{{ domain }}.   ; 10.95.72.75
-76    IN      PTR     ocp-compute-2.{{ domain }}.   ; 10.95.72.76
+75    IN      PTR     compute-0.{{ domain }}.   ; 10.95.72.75
+76    IN      PTR     compute-1.{{ domain }}.   ; 10.95.72.76
